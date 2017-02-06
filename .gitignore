@@ -7,4 +7,5 @@
 **/.settings
 # Build tool specific rules
 **/.gradle
+**/build
 **/target
