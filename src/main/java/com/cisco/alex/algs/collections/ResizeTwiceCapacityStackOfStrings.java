@@ -23,4 +23,12 @@ public class ResizeTwiceCapacityStackOfStrings extends FixedCapacityStackOfStrin
         super.push(item);
     }
 
+    @Override
+    public String pop() {
+        String currentValue = super.pop();
+        if (headIndex > 0 && headIndex == dataHolder.length / 4) {
+            dataHolder = Arrays.copyOf(dataHolder, dataHolder.length / 2);
+        }
+        return currentValue;
+    }
 }
