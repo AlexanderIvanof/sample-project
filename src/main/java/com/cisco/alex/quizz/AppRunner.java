@@ -1,4 +1,4 @@
-package com.cisco.alex;
+package com.cisco.alex.quizz;
 
 import java.util.function.Supplier;
 

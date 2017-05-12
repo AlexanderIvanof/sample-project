@@ -1,8 +1,8 @@
 package com.cisco.alex.algs.collections;
 
-import java.util.Optional;
-
 /**
+ *  Implementation of {@code Stack} data structure based on <u>Linked List</u>.
+ *
  * @author oleivano
  */
 public class LinkedStackOfStrings implements Stack<String> {
@@ -17,20 +17,19 @@ public class LinkedStackOfStrings implements Stack<String> {
         }
     }
 
-    private Optional<Node> first = Optional.<Node>empty();
+    private Node first;
 
     @Override
     public void push(String item) {
-        Node oldFirst = first.orElse(null);
-        Node newFirst = new Node(item, oldFirst);
-        first = Optional.of(newFirst);
+        Node oldFirst = first;
+        first = new Node(item, oldFirst);
     }
 
     @Override
     public String pop() {
-        if (first.isPresent()) {
-            final Node head = first.get();
-            first = Optional.of(head.next);
+        if (first != null) {
+            final Node head = first;
+            first = head.next;
             return head.item;
         } else {
             return null;
@@ -39,7 +38,7 @@ public class LinkedStackOfStrings implements Stack<String> {
 
     @Override
     public boolean isEmpty() {
-        return !first.isPresent();
+        return first == null;
     }
 
     @Override
