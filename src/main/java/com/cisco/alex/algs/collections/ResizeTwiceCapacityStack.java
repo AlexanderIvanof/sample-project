@@ -5,16 +5,16 @@ import java.util.Arrays;
 /**
  * @author oleivano
  */
-public class ResizeTwiceCapacityStackOfStrings extends FixedCapacityStackOfStrings {
+public class ResizeTwiceCapacityStack<T> extends FixedCapacityStack<T> {
 
     private static final int ARRAY_INITIAL_CAPACITY = 1;
 
-    public ResizeTwiceCapacityStackOfStrings() {
+    public ResizeTwiceCapacityStack() {
         super(ARRAY_INITIAL_CAPACITY);
     }
 
     @Override
-    public void push(String item) {
+    public void push(T item) {
         final int currentLength = dataHolder.length;
         if (headIndex == currentLength) {
             // repeated doubling
@@ -24,8 +24,8 @@ public class ResizeTwiceCapacityStackOfStrings extends FixedCapacityStackOfStrin
     }
 
     @Override
-    public String pop() {
-        String currentValue = super.pop();
+    public T pop() {
+        T currentValue = super.pop();
         if (headIndex > 0 && headIndex == dataHolder.length / 4) {
             dataHolder = Arrays.copyOf(dataHolder, dataHolder.length / 2);
         }

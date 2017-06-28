@@ -5,15 +5,17 @@ package com.cisco.alex.algs.collections;
  *
  * @author oleivano
  */
-public class LinkedQueueOfStrings implements Queue<String> {
+public class LinkedQueue<T> implements Queue<T> {
 
     private Node first;
     private Node last;
+    private int dataLength;
 
     @Override
-    public void enqueue(String item) {
+    public void enqueue(T item) {
         Node oldLast = last;
         last = new Node(item, null);
+        ++dataLength;
         if (isEmpty()) {
             first = last;
         } else {
@@ -23,12 +25,13 @@ public class LinkedQueueOfStrings implements Queue<String> {
     }
 
     @Override
-    public String dequeue() {
-        String item = first.item;
+    public T dequeue() {
+        T item = first.item;
         first = first.next;
         if (isEmpty()) {
             last = null;
         }
+        --dataLength;
         return item;
     }
 
@@ -39,14 +42,14 @@ public class LinkedQueueOfStrings implements Queue<String> {
 
     @Override
     public int size() {
-        return 0;
+        return dataLength;
     }
 
     private class Node {
-        String item;
+        T item;
         Node next;
 
-        Node(String item, Node next) {
+        Node(T item, Node next) {
             this.item = item;
             this.next = next;
         }

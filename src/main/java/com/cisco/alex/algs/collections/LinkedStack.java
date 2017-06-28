@@ -5,13 +5,13 @@ package com.cisco.alex.algs.collections;
  *
  * @author oleivano
  */
-public class LinkedStackOfStrings implements Stack<String> {
+public class LinkedStack<T> implements Stack<T> {
 
     private class Node {
-        String item;
+        T item;
         Node next;
 
-        Node(String item, Node next) {
+        Node(T item, Node next) {
             this.item = item;
             this.next = next;
         }
@@ -20,13 +20,13 @@ public class LinkedStackOfStrings implements Stack<String> {
     private Node first;
 
     @Override
-    public void push(String item) {
+    public void push(T item) {
         Node oldFirst = first;
         first = new Node(item, oldFirst);
     }
 
     @Override
-    public String pop() {
+    public T pop() {
         if (first != null) {
             final Node head = first;
             first = head.next;
@@ -34,6 +34,11 @@ public class LinkedStackOfStrings implements Stack<String> {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public T peek() {
+        return first == null ? null : first.item;
     }
 
     @Override

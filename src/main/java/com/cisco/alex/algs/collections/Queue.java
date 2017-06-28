@@ -10,7 +10,7 @@ public interface Queue<T> {
     /**
      * Insert a new item onto queue.
      *
-     * @param item
+     * @param item item to add
      */
     void enqueue(T item);
 

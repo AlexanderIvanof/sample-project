@@ -9,9 +9,9 @@ import java.util.List;
 public class RunnerForStack {
 
     public static void main(String[] args) {
-        Stack<String> stringStack = new ResizeTwiceCapacityStackOfStrings();
+        Stack<String> stringStack = new ResizeTwiceCapacityStack<>();
         stringStack.pop();
-        List<String> testedStrings = Arrays.asList("to", "be", "or", "not", "to", "-", "be", "-", "-", "that", "-", "-", "-", "is");
+        List<String> testedStrings = Arrays.asList("-", "-", "-", "to", "be", "or", "not", "to", "-", "be", "-", "-", "that", "-", "-", "-", "is");
         for (String it : testedStrings) {
             if (it.equals("-")) {
                 System.out.println(stringStack.pop());

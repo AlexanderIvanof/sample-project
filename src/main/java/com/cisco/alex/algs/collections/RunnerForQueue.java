@@ -9,7 +9,7 @@ import java.util.List;
 public class RunnerForQueue {
 
     public static void main(String[] args) {
-        Queue<String> queueOfStrings = new ResizeTwiceCapacityQueueOfStrings();
+        Queue<String> queueOfStrings = new ResizeTwiceCapacityQueue<>();
 
         List<String> testedStrings = Arrays.asList("1", "2", "3", "4", "-", "5", "6", "-", "-", "-", "7");
         for (String it : testedStrings) {

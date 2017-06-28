@@ -23,6 +23,14 @@ public interface Stack<T> {
     T pop();
 
     /**
+     * Return last added item from stack with no deletion.
+     *
+     * @return last added item.
+     */
+    T peek();
+
+
+    /**
      * If {@code Stack is empty}
      *
      * @return {@code true} if {@code stack} is empty, and {@code false} otherwise.

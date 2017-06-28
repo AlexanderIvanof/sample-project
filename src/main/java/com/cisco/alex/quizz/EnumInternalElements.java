@@ -1,5 +1,11 @@
 package com.cisco.alex.quizz;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Fruits enum.
  *
@@ -29,6 +35,20 @@ enum Fruits {
 public class EnumInternalElements {
 
     public static void main(String[] args) {
+        List<String> listOfStrings = Arrays.asList("Helllo", "wrld");
+
+        String reduce = listOfStrings.stream().reduce(" ", (a, b) -> a + "'" + b + "',", (a, b) -> a + b+1);
+//        System.out.println(reduce);
+        String tested = "tuytu'347rf789','hhooo8779'";
+        Pattern ptrn = Pattern.compile("\'(.+?)\'", Pattern.DOTALL);
+
+        final Matcher matcher = ptrn.matcher(tested);
+        while (matcher.find()) {
+            System.out.println(matcher.group(1));
+        }
+    }
+
+    public static void mainq(String[] args) {
         Fruits apple = Fruits.APPLE;
         Fruits cherry = Fruits.CHERRY;
         Fruits mangosteen = Fruits.MANGOSTEEN;
